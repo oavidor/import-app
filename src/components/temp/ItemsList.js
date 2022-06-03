@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from "react-router-dom";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -13,22 +14,28 @@ import ArticleIcon from '@mui/icons-material/Article';
 
 
 const ItemsList = () => {
+  const navigate = useNavigate();
+
+  const handleItemClick = (pathName) => {
+    navigate(`/${pathName}`, { replace: false })
+  }
+
     return (
       <List>
-      <ListItem disablePadding>
-        <ListItemButton>
+      <ListItem disablePadding >
+        <ListItemButton onClick={()=> handleItemClick("customers")}>
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
-          <ListItemText primary="לקוחות" />
+          <ListItemText primary="לקוחות" style={{textAlign: "right"}} />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
-        <ListItemButton>
+      <ListItemButton onClick={()=> handleItemClick("products")}>
           <ListItemIcon>
             <ShoppingBagIcon />
           </ListItemIcon>
-          <ListItemText primary="מוצרים" />
+          <ListItemText primary="מוצרים" style={{textAlign: "right"}} />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
@@ -36,7 +43,7 @@ const ItemsList = () => {
           <ListItemIcon>
             <ArticleIcon />
           </ListItemIcon>
-          <ListItemText primary="הזמנות" />
+          <ListItemText primary="הזמנות" style={{textAlign: "right"}} />
         </ListItemButton>
       </ListItem>
     </List>

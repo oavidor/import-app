@@ -6,77 +6,76 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import SearchIcon from '@mui/icons-material/Search';
+import Box from '@mui/material/Box';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+
 
 const CustomersList =  () =>  {
   return (
     // <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-    <List>
-      <ListItem alignItems="flex-start">
+  <>
+  <TextField id="standard-basic"  variant="standard" style={{width: "100%"}}
+   InputProps={{
+    startAdornment: (
+      <InputAdornment position="start">
+        <SearchIcon />
+      </InputAdornment>
+    ),
+  }}
+  />
+    <List style={{width: "100%"}}>
+      <ListItem alignItems="flex-start" style={{textAlign: "right"}}>
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <Avatar alt="חוות נעמי" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
         <ListItemText
-          primary="Brunch this weekend?"
+          primary={<b><span>{`חוות נעמי, חנוכה ר.ד בע"מ (גבעתיים)`}</span></b>}
           secondary={
             <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                Ali Connors
-              </Typography>
-              {" — I'll be in your neighborhood doing errands this…"}
+              <span style={{marginLeft: "5px"}}>{"הזמנה אחרונה:"}</span>
+              <span> {"10/02/2022"}</span>
             </React.Fragment>
           }
         />
       </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
+      <Divider variant="inset" component="li" style={{width: "100%"}}/>
+      <ListItem alignItems="flex-start" style={{textAlign: "right"}}>
         <ListItemAvatar>
-          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+          <Avatar alt="חוות נעמי" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
         <ListItemText
-          primary="Summer BBQ"
+          primary={<b><span>{`חוות נעמי, חנוכה ר.ד בע"מ (רעננה)`}</span></b>}
           secondary={
             <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                to Scott, Alex, Jennifer
-              </Typography>
-              {" — Wish I could come, but I'm out of town this…"}
+              <span style={{marginLeft: "5px"}}>{"הזמנה אחרונה:"}</span>
+              <span> {"07/03/2022"}</span>
             </React.Fragment>
           }
         />
       </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem alignItems="flex-start">
+      <Divider variant="inset" component="li" style={{width: "100%"}}/>
+      <ListItem alignItems="flex-start" style={{textAlign: "right"}}>
         <ListItemAvatar>
-          <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+          <Avatar alt="גורמה" src="/static/images/avatar/1.jpg" />
         </ListItemAvatar>
         <ListItemText
-          primary="Oui Oui"
+          primary={<b><span>{`424 גורמה בע"מ`}</span></b>}
           secondary={
             <React.Fragment>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                Sandra Adams
-              </Typography>
-              {' — Do you have Paris recommendations? Have you ever…'}
+              <span style={{marginLeft: "5px"}}>{"הזמנה אחרונה:"}</span>
+              <span> {"14/02/2022"}</span>
             </React.Fragment>
           }
         />
       </ListItem>
     </List>
+    </>
   );
 }
 
