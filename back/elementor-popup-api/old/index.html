@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.31/system.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Popup Project</title>
+</head>
+<body>
+<div>hellllo</div>
+<script type="text/javascript">
+
+    function jsonParse() { //todo-ortal use in the code
+        try {
+            var json = JSON.parse(text);
+        } 
+        catch(e) {
+            return false;
+        }
+        return json;
+    }
+    
+    var http = new XMLHttpRequest();
+    var email = 'ortal@test.com';
+    var name = 'ortal';
+    var data = "username=" + name + '&email=' + email;
+
+    http.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var json = jsonParse(this.responseText);
+
+            if (!json || json.status !== true) {
+                console.log(json.error || 'Something Bad Happened');
+                return;
+            }    
+
+            alert('Everything is Fine!');
+
+        }
+    }
+
+    http.open('ajax.php', 'POST', true);
+    http.send(data);
+
+</script>
+</body>
+</html>
