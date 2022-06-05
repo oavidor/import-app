@@ -6,6 +6,7 @@ import './App.css';
 import CustomersList from './components/temp/CustomersList';
 import ProductsList from "./components/temp/ProductsList";
 import Layout from './components/layout/Layout';
+import CustomerForm from './components/temp/CustomerForm';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route index element={<ItemsList />} />
         <Route path="customers" element={<CustomersList />} />
         <Route path="products" element={<ProductsList />} />
+        <Route path="customer" element={<CustomerForm />} />
       </Routes>
       </Layout>
     </div>

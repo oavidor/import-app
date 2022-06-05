@@ -14,9 +14,17 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
 
 const CustomersList =  () =>  {
+  const navigate = useNavigate();
+
+  const handleItemClick = (pathName) => {
+    navigate(`/${pathName}`, { replace: false })
+  }  
+
   return (
     // <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
   <>
@@ -43,6 +51,11 @@ const CustomersList =  () =>  {
             </React.Fragment>
           }
         />
+        <div style={{display: "flex"}}>
+        <Button variant="contained"  size="small" style={{marginLeft: "5px"}} onClick={()=> handleItemClick("customer")}>עריכה</Button>
+        <Button variant="contained"  size="small" style={{marginLeft: "5px"}} onClick={()=> handleItemClick("products")}>הזמנה חדשה</Button>
+        </div>
+         
       </ListItem>
       <Divider variant="inset" component="li" style={{width: "100%"}}/>
       <ListItem alignItems="flex-start" style={{textAlign: "right"}}>
@@ -80,3 +93,4 @@ const CustomersList =  () =>  {
 }
 
 export default CustomersList
+//todo-ortal add state to put customer
