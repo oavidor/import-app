@@ -6,54 +6,42 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
+import BasicInput from '../ui/input/BasicInput';
 
 
 
 
 const CustomerForm = () => {
 
+    const [info, setInfo] = React.useState({});
+
+    const handelChange = (key, value) => {
+        const newInfo = {...info, [key]: value}
+        setInfo(newInfo)
+        console.log(newInfo)
+
+    }//todo-ortal use reducer
+
     return (
-        <div style={{}}>
+        <div>
             <Typography variant="h2" gutterBottom component="div">
         טופס לקוח
       </Typography>
-      <div style={{display: "flex", flexDirection: "column", direction: "rtl", textAlign: "right", justifyContent: "flex-end"}}>
-        <FormControl direction={"rtl"} style={{direction: "rtl", textAlign: "right"}}>
-            <InputLabel htmlFor="name">שם</InputLabel>
-            <Input id="name"  variant="filled"/>
-            {/* <FormHelperText id="name-helper-text"></FormHelperText> */}
-        </FormControl>
-        <FormControl>
-            <InputLabel htmlFor="company-id">ח"פ</InputLabel>
-            <Input id="company-id"  variant="filled"/>
-            {/* <FormHelperText id="name-helper-text"></FormHelperText> */}
-        </FormControl>
-        <FormControl>
-            <InputLabel htmlFor="phone">טלפון</InputLabel>
-            <Input id="phone"  variant="filled"/>
-            {/* <FormHelperText id="name-helper-text"></FormHelperText> */}
-        </FormControl>
-        <FormControl>
-            <InputLabel htmlFor="address">כתובת</InputLabel>
-            <Input id="address"  variant="filled"/>
-            {/* <FormHelperText id="name-helper-text"></FormHelperText> */}
-        </FormControl>
-        <FormControl>
-            <InputLabel htmlFor="credit">אשראי</InputLabel>
-            <Input id="credit"  variant="filled"/>
-            {/* <FormHelperText id="name-helper-text"></FormHelperText> */}
-        </FormControl>
-         {/* <TextField id="filled-name" label={"שם"} variant="filled"  style={{ textAlign: "right"}}/>
-            <TextField id="filled-id" label={`ח"פ`} variant="filled" />
-            <TextField id="filled-phone" label={`טלפון`} variant="filled" />
-            <TextField id="filled-address" label={`כתובת`} variant="filled" /> */}
-      </div>
-            {/* <TextField id="filled-name" label={"שם"} variant="filled" />
-            <TextField id="filled-id" label={`{ח"פ}`} variant="filled" />
-            <TextField id="filled-phone" label={`טלפון`} variant="filled" />
-            <TextField id="filled-address" label={`כתובת`} variant="filled" /> */}
+      <form >
+      <div>
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+        </div>
+        <BasicInput name='name' label='שם' onBlur={(value) => handelChange("name", value)} />
+        <BasicInput name='company-id' label='ח.פ' onBlur={(value) => handelChange("companyId", value)}/>
+        <BasicInput name='phone' label='טלפון' onBlur={(value) => handelChange("phone", value)}/>
+        <BasicInput name='address' label='כתובת' onBlur={(value) => handelChange("address", value)}/>
+        <BasicInput name='credit' label='אשראי' onBlur={(value) => handelChange("credit", value)} />
+      </form>
+            
         </div>
     )
 }
 
 export default CustomerForm
+
+// style={{display: "flex", flexDirection: "column", direction: "rtl", textAlign: "right", justifyContent: "flex-end"}}
